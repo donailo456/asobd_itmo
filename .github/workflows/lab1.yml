@@ -1,0 +1,5 @@
+name: Lab 1
+on: pull_request
+jobs:
+  lab1:
+    uses: sitnikovik/abds/.github/workflows/reusable_energosbyt_lab1.yml@main

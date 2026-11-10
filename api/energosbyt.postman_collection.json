@@ -1,0 +1,18 @@
+{
+  "info": {
+    "name": "ЭнергоСбыт — лабораторная 1",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [{"key": "base_url", "value": "http://localhost:8080"}],
+  "item": [
+    {"name": "Ping", "request": {"method": "GET", "url": "{{base_url}}/ping"}},
+    {"name": "Get user", "request": {"method": "GET", "url": "{{base_url}}/users/1"}},
+    {"name": "Patch user", "request": {"method": "PATCH", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\"fio\":\"Петров Пётр Петрович\",\"phone\":\"+79111111111\"}"}, "url": "{{base_url}}/users/1"}},
+    {"name": "Get realty", "request": {"method": "GET", "url": "{{base_url}}/realty/1"}},
+    {"name": "Get readings", "request": {"method": "GET", "url": "{{base_url}}/realty/1/readings?date_from=2026-10-01&date_to=2026-10-31"}},
+    {"name": "Post reading", "request": {"method": "POST", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\"user_id\":1,\"gauge_id\":1001,\"tariff_id\":1,\"reading_date\":\"2026-10-01\",\"day_kw\":5000,\"night_kw\":2000}"}, "url": "{{base_url}}/realty/1/readings"}},
+    {"name": "Get invoices", "request": {"method": "GET", "url": "{{base_url}}/realty/1/invoices?limit=10&offset=0"}},
+    {"name": "Get tariff", "request": {"method": "GET", "url": "{{base_url}}/tariffs?date=2026-10-27"}},
+    {"name": "Install gauge", "request": {"method": "POST", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\"gauge_id\":2}"}, "url": "{{base_url}}/realty/1/gauges"}}
+  ]
+}
