@@ -1,4 +1,3 @@
-"""Small stdlib-only JSON API backed by ClickHouse HTTP."""
 import json
 import os
 import re

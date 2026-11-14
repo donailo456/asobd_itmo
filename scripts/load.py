@@ -1,4 +1,3 @@
-"""Load CSV through clickhouse-client in the running Docker container."""
 import subprocess
 from pathlib import Path
 
@@ -12,8 +11,6 @@ for table in TABLES:
     if not path.exists():
         raise SystemExit(f"Missing {path}; run make gen first")
 
-# A clean reload also avoids MergeTree invoice duplicates and preserves CSV
-# correction pairs for ReplacingMergeTree.
 for table in reversed(TABLES):
     subprocess.run(("docker", "compose", "--env-file", ".env.local", "exec", "-T",
                     "clickhouse", "clickhouse-client", "--query",

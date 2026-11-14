@@ -1,4 +1,3 @@
-"""Deterministic, dependency-free CSV generator for laboratory work 1."""
 import csv
 from datetime import date, datetime, timedelta
 from pathlib import Path
