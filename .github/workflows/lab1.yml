@@ -1,0 +1,7 @@
+name: Lab 1
+on: pull_request
+jobs:
+  lab1:
+    uses: sitnikovik/abds/.github/workflows/energosbyt.lab.yml@master
+    with:
+      lab: '1'
