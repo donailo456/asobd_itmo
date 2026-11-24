@@ -41,6 +41,8 @@ make stop
 
 `GET /ping`, `GET/PATCH /users/{id}`, `GET /realty/{id}`, `POST/GET /realty/{id}/readings`, `GET /realty/{id}/invoices`, `GET /tariffs?date=YYYY-MM-DD`, `POST /realty/{id}/gauges`. Тела запросов и ответы — JSON; ошибки имеют поле `message`. API не использует авторизацию согласно заданию.
 
+Код сервиса разделён по слоям: `app/http_api.py` обрабатывает маршруты и JSON, `app/validation.py` проверяет входные данные, `app/service.py` выполняет правила SCD, `app/repositories.py` содержит SQL-запросы, `app/clickhouse.py` отвечает за HTTP-подключение к ClickHouse. `app/server.py` запускает сервер. Локальные проверки: `python3 -m unittest discover -s tests`.
+
 ## Проверка в GitHub Actions
 
 Файлы запуска находятся в корне репозитория. Номер работы задан в `.labrc`; проверяющий workflow лежит в `.github/workflows/lab1.yml` и запускается при открытии Pull Request.
